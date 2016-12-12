@@ -1,0 +1,39 @@
+{
+  "name": "dragosmocrii/model-meta",
+  "description": "Save and retrieve meta settings for any models. Property Bag pattern implementation.",
+  "keywords": [
+    "laravel",
+    "model meta",
+    "meta data",
+    "property bag",
+    "model settings",
+    "model options",
+    "post meta"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dragosh Mocrii",
+      "email": "dragosmocrii@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.0",
+    "orchestra/testbench": "~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DragoshMocrii\\ModelMeta\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DragoshMocrii\\ModelMeta\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
