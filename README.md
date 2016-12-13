@@ -52,16 +52,16 @@ class Client extends Model {
 #### Setting meta on a new model
 
 ```php
-$model=new MetableModel;
-$model->metaSet('key', 'value'); //at this time, the meta is not saved to the DB yet, because the model does not have a foreign key set yet
+$model = new MetableModel;
+$model->metaSet( 'key', 'value' ); //at this time, the meta is not saved to the DB yet, because the model does not have a foreign key set yet
 $model->save(); // meta will be saved when the model is saved
 ```
 
 #### Setting meta on an existing model
 
 ```php
-$model=MetableModel::findOrFail(1);
-$model->metaSet('key', 'value'); //this meta will be saved to DB instantly
+$model = MetableModel::findOrFail( 1 );
+$model->metaSet( 'key', 'value' ); //this meta will be saved to DB instantly
 ```
 
 ### Setting multiple meta at once
@@ -73,8 +73,11 @@ $model->metaSet('key', 'value'); //this meta will be saved to DB instantly
 > **Note**: The **$values** parameter needs to be an associative array, where the key is a **string**. If these conditions are not met, an Exception will be thrown.
 
 ```php
-$model=new MetableModel;
-$model->metaSetMany([ 'key' => 'value', 'foo' => 'bar' ]); //at this time, the meta is not saved to the DB yet, because the model does not have a foreign key set yet
+$model = new MetableModel;
+$model->metaSetMany( [
+	'key' => 'value',
+	'foo' => 'bar'
+] ); //at this time, the meta is not saved to the DB yet, because the model does not have a foreign key set yet
 $model->save(); // meta will be saved when the model is saved
 ```
 
@@ -87,15 +90,18 @@ $model->save(); // meta will be saved when the model is saved
 #### Getting single meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$meta_value=$model->metaGet('foo', 'bar'); //returns the value of meta[foo] or 'bar' if meta[foo] does not exist
+$model      = MetableModel::findOrFail( 1 );
+$meta_value = $model->metaGet( 'foo', 'bar' ); //returns the value of meta[foo] or 'bar' if meta[foo] does not exist
 ```
 
 #### Getting multiple meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$metas=$model->metaGet(['key','foo']); //will return an associative array containing the values for the respective meta keys. if meta does not exist, it will be assigned with a null value
+$model = MetableModel::findOrFail( 1 );
+$metas = $model->metaGet( [
+	'key',
+	'foo'
+] ); //will return an associative array containing the values for the respective meta keys. if meta does not exist, it will be assigned with a null value
 ```
 
 #### Getting all meta
@@ -103,8 +109,8 @@ $metas=$model->metaGet(['key','foo']); //will return an associative array contai
 ``mixed metaAll()``
 
 ```php
-$model=MetableModel::findOrFail(1);
-$all_meta=$model->metaAll(); //returns an array containing all meta for the current model
+$model    = MetableModel::findOrFail( 1 );
+$all_meta = $model->metaAll(); //returns an array containing all meta for the current model
 ```
 
 ### Removing meta
@@ -116,15 +122,15 @@ $all_meta=$model->metaAll(); //returns an array containing all meta for the curr
 #### Removing single meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$model->metaRemove('key');
+$model = MetableModel::findOrFail( 1 );
+$model->metaRemove( 'key' );
 ```
 
 #### Removing multiple meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$model->metaRemove([ 'key', 'foo' ]);
+$model = MetableModel::findOrFail( 1 );
+$model->metaRemove( [ 'key', 'foo' ] );
 ```
 
 ### Check for meta
@@ -136,15 +142,18 @@ $model->metaRemove([ 'key', 'foo' ]);
 #### Check for single meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$meta_exists=$model->metaExists('key');
+$model       = MetableModel::findOrFail( 1 );
+$meta_exists = $model->metaExists( 'key' );
 ```
 
 #### Check for multiple meta
 
 ```php
-$model=MetableModel::findOrFail(1);
-$meta_exists=$model->metaExists([ 'key', 'foo' ]); //return true/false if $return_missing is false. Otherwise, returns an array containing the keys of the missing meta
+$model       = MetableModel::findOrFail( 1 );
+$meta_exists = $model->metaExists( [
+	'key',
+	'foo'
+] ); //return true/false if $return_missing is false. Otherwise, returns an array containing the keys of the missing meta
 ```
 
 ## Model Meta & Laravel
@@ -154,9 +163,9 @@ The model meta uses polymorphic relationships to achieve its functionality. You 
 For example, you can fetch meta for a model, using default Laravel methods:
 
 ```php
-$model=MetableModel::findOrFail(1);
-$metas=$model->meta()->get()->toArray();
-$single_meta=$model->meta()->where('key','keyname')->get()->toArray();
+$model       = MetableModel::findOrFail( 1 );
+$metas       = $model->meta()->get()->toArray();
+$single_meta = $model->meta()->where( 'key', 'keyname' )->get()->toArray();
 ```
 
 ## Known issues
