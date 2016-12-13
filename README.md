@@ -172,4 +172,4 @@ $single_meta = $model->meta()->where( 'key', 'keyname' )->get()->toArray();
 
 - Setting metas will do 2 queries for each meta. This is because Model Meta uses the ``updateOrCreate`` Laravel method, which executes 2 queries against the DB.
 - At each meta retrieval, a DB query will be executed. Will fix this by eager loading the meta on the model.
-- Model Meta uses the class name of the model that uses the MetableFunctionality trait to save the meta to DB. If the class name changes, the metas won't be accessible anymore. This can be fixed by using Laravel's ``morphMap``. Will implement this in a future update.
+- Model Meta uses the class name of the model that uses the MetableFunctionality trait to save the meta to DB. If the class name changes, the metas won't be accessible anymore. This can be fixed by using Laravel's ``Relation::morphMap``. Will implement this in a future update.
