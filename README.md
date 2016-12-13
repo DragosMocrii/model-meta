@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Model Meta package for Laravel allows you to easily store and retrieve meta data for any models. This package is an implementation of the Property Bag pattern, which is supposed to help you deal with the situations when you need to store various model properties (meta), but adding the properties to the model is not a viable option. 
+The Model Meta package for Laravel 5.3 allows you to easily store and retrieve meta data for any models. This package is an implementation of the Property Bag pattern, which is supposed to help you deal with the situations when you need to store various model properties (meta), but adding the properties to the model is not a viable option. 
 
 ## Installation
 
