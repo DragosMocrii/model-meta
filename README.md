@@ -16,10 +16,6 @@ composer require dragosmocrii/model-meta
 
 Next, you need to add the ModelMetaServiceProvider to your `providers` array in config/app.php :
 
-### Migration
-
-The Model Meta needs to set up its table. To do so, run `php artisan migrate`.
-
 ```php
 /*
 * Package Service Providers...
@@ -27,6 +23,10 @@ The Model Meta needs to set up its table. To do so, run `php artisan migrate`.
 
 DragoshMocrii\ModelMeta\ModelMetaServiceProvider::class,
 ```
+
+### Migration
+
+The Model Meta needs to set up its table. To do so, run `php artisan migrate`.
 
 ## Configuration
 
