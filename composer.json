@@ -1,6 +1,6 @@
 {
   "name": "dragosmocrii/model-meta",
-  "description": "Save and retrieve meta settings for any models. Property Bag pattern implementation.",
+  "description": "Save and retrieve meta settings for any models.",
   "keywords": [
     "laravel",
     "model meta",
