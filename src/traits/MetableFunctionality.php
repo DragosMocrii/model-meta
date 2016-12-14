@@ -97,6 +97,10 @@ trait MetableFunctionality {
 	 * @return mixed
 	 */
 	public function metaGet( $keys, $default = null ) {
+		if ( true === config( 'model_meta.preload_on_get', true ) ) {
+			$this->metaAll(); //preload meta
+		}
+
 		if ( is_string( $keys ) ) {
 			if ( isset( $this->_active_meta[ $keys ] ) ) {
 				return $this->_active_meta[ $keys ];
